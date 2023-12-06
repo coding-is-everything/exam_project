@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Project Worlds || FEEDBACK </title>
+<title>AP Tech || FEEDBACK </title>
 <link  rel="stylesheet" href="css/bootstrap.min.css"/>
  <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
  <link rel="stylesheet" href="css/main.css">
@@ -24,7 +24,7 @@
 <!--header start-->
 <div class="row header">
 <div class="col-lg-6">
-<span class="logo">Test Your Skill</span></div>
+<span class="logo">Online Quiz</span></div>
 <div class="col-md-2">
 </div>
 <div class="col-md-4">

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Project Worlds || DASHBOARD </title>
+<title>AP Tech || DASHBOARD </title>
 <link  rel="stylesheet" href="css/bootstrap.min.css"/>
  <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
  <link rel="stylesheet" href="css/main.css">
@@ -35,7 +35,7 @@ $(function () {
 <div class="header">
 <div class="row">
 <div class="col-lg-6">
-<span class="logo">Test Your Skill</span></div>
+<span class="logo">Online Quiz</span></div>
 <?php
  include_once 'dbConnection.php';
 session_start();
@@ -96,7 +96,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 
 <?php if(@$_GET['q']==0) {
 
-$result = mysqli_query($con,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
+$result = mysqli_query($con,"SELECT * FROM `quiz` ORDER BY date DESC") or die('Error');
 echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
 <tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
 $c=1;
@@ -106,7 +106,7 @@ while($row = mysqli_fetch_array($result)) {
 	$sahi = $row['sahi'];
     $time = $row['time'];
 	$eid = $row['eid'];
-$q12=mysqli_query($con,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error98');
+$q12=mysqli_query($con,"SELECT score FROM `history` WHERE eid='$eid' AND email='$email'" )or die('Error98');
 $rowcount=mysqli_num_rows($q12);	
 if($rowcount == 0){
 	echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
@@ -126,7 +126,7 @@ echo '</table></div></div>';
 //ranking start
 if(@$_GET['q']== 2) 
 {
-$q=mysqli_query($con,"SELECT * FROM rank  ORDER BY score DESC " )or die('Error223');
+$q=mysqli_query($con,"SELECT * FROM `rank`  ORDER BY score DESC " )or die('Error223');
 echo  '<div class="panel title"><div class="table-responsive">
 <table class="table table-striped title1" >
 <tr style="color:red"><td><b>Rank</b></td><td><b>Name</b></td><td><b>Gender</b></td><td><b>College</b></td><td><b>Score</b></td></tr>';
@@ -135,7 +135,7 @@ while($row=mysqli_fetch_array($q) )
 {
 $e=$row['email'];
 $s=$row['score'];
-$q12=mysqli_query($con,"SELECT * FROM user WHERE email='$e' " )or die('Error231');
+$q12=mysqli_query($con,"SELECT * FROM `user` WHERE email='$e' " )or die('Error231');
 while($row=mysqli_fetch_array($q12) )
 {
 $name=$row['name'];
@@ -154,7 +154,7 @@ echo '</table></div></div>';}
 <!--users start-->
 <?php if(@$_GET['q']==1) {
 
-$result = mysqli_query($con,"SELECT * FROM user") or die('Error');
+$result = mysqli_query($con,"SELECT * FROM `user`") or die('Error');
 echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
 <tr><td><b>S.N.</b></td><td><b>Name</b></td><td><b>Gender</b></td><td><b>College</b></td><td><b>Email</b></td><td><b>Mobile</b></td><td></td></tr>';
 $c=1;
@@ -204,7 +204,7 @@ echo '</table></div></div>';
 <?php if(@$_GET['fid']) {
 echo '<br />';
 $id=@$_GET['fid'];
-$result = mysqli_query($con,"SELECT * FROM feedback WHERE id='$id' ") or die('Error');
+$result = mysqli_query($con,"SELECT * FROM `feedback` WHERE id='$id' ") or die('Error');
 while($row = mysqli_fetch_array($result)) {
 	$name = $row['name'];
 	$subject = $row['subject'];
@@ -390,7 +390,7 @@ echo '<div class="form-group">
 <!--remove quiz-->
 <?php if(@$_GET['q']==5) {
 
-$result = mysqli_query($con,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
+$result = mysqli_query($con,"SELECT * FROM `quiz` ORDER BY date DESC") or die('Error');
 echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
 <tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
 $c=1;
